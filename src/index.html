@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 40px;
+    }
+
+    img.logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #003366;
+      margin-bottom: 40px;
+    }
+
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #f39200;
+    }
+  </style>
+</head>
+<body>
+  <img class="logo" src="senac-logo.png" alt="Logo Senac">
+  <h1>Gerenciador de usuários - Senac RS</h1>
+  <button onclick="window.windowAPI.windowAluno()">Cadastro de Alunos</button>
+  <button onclick="window.windowAPI.windowProfessor()">Cadastro de Professores</button>
+  <button onclick="window.windowAPI.windowCurso()">Cadastro de Cursos</button>
+</body>
+</html>

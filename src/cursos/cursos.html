@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cursos</title>
+
+     <script src="https://unpkg.com/lucide@latest"></script>
+     <link rel="stylesheet" href="cursos.css">
+</head>
+<body>
+    <p id="teste"></p>
+    <img src="senac-logo.png" alt="Logo Senac" class="logo-topo">
+    <button id="btn-incluir">incluir</button>
+
+    <table class='table' id="cursosTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>              
+            </tr>
+        </thead>
+        <tbody id="cursoTableDados">    
+        </tbody>
+    </table>
+
+
+    <!--modal-->
+    <div id="modal" >
+        <h3>Edite os dados do Curso:</h3>
+
+        <label>ID: <input type="text" id="curso-id" readonly /> 
+        </label>
+        <br>
+        <label>Nome: <input type="text" id="curso-nome">       
+        </label>
+         <br>
+        <labe>Descrição: <input type="text" id="curso-descricao">
+        </label>
+        <br>
+        <button id="btn-salvar">Salvar</button>
+        <button id="btn-excluir">Excluir</button>
+    </div>
+
+
+    <script src="curso.js"></script>
+</body>
+</html>
