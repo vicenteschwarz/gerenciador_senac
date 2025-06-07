@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de materias</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="cadeira.css">
+</head>
+
+<body>
+    <p id="teste"></p>
+    <button id="btn-incluir">
+        <i data-lucide="plus"></i>
+    </button>
+    <table id="materiasTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Id de curso</th>
+            </tr>
+        </thead>
+        <tbody id="materiasTableDados">
+        </tbody>
+    </table>
+
+
+    <!--modal-->
+    <div id="modal">
+        <h3>Edite os dados do materia:</h3>
+
+        <label>ID: <input type="text" id="materia-id" readonly />
+        </label>
+        <br>
+        <label>Nome: <input type="text" id="materia-nome">
+        </label>
+        <br>
+        <label>Descrição: <input type="text" id="materia-descricao">
+        </label>
+        <br>
+        <label>Nome do curso:</label>
+        <select id="cursos-id" name="materia"></select>
+        <br>
+        <button id="btn-salvar">Salvar</button>
+        <button id="btn-excluir">Excluir</button>
+
+    </div>
+
+
+    <script src="cadeira.js"></script>
+</body>
+
+</html>

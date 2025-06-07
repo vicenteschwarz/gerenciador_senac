@@ -1,4 +1,5 @@
-const { contextBridge, ipcRenderer } = require('electron')
+const { contextBridge, ipcRenderer } = require('electron');
+const { atualizarNota, inserirNota } = require('./notas/notas_db');
 //alunos
 function buscarAlunos() {
     return ipcRenderer.invoke('buscar-alunos');
@@ -53,7 +54,40 @@ function inserirCurso(pNome, pCpf){
     return ipcRenderer.invoke('insert-curso', pNome, pCpf)
 }
 
+//materias/cadeiras
 
+function buscarMaterias() {
+    return ipcRenderer.invoke('buscar-materias');
+}
+
+function excluirMaterias(pID) {
+    return ipcRenderer.invoke('deletar-materias', pID);
+}
+
+function atualizarMaterias(pNome, pDescricao, pIdCurso, pId) {
+    return ipcRenderer.invoke('atualizar-materias', pNome, pDescricao, pIdCurso, pId);
+}
+
+function inserirMaterias(pNome, pDescricao, pIdCurso) {
+    return ipcRenderer.invoke('inserir-materias', pNome, pDescricao, pIdCurso);
+}
+
+//notas
+function buscarNotas() {
+    return ipcRenderer.invoke('buscar-notas')
+}
+
+function excluirNota(event, id){
+    return ipcRenderer.invoke('excluir-nota', id)
+}
+
+function atualizarNota(event, alunoId, cursoId, materiaId, professorId, avaliacaoNota, notaId){
+    return ipcRenderer.invoke('att-nota', alunoId, cursoId, materiaId, professorId, avaliacaoNota, notaId)
+}
+
+function inserirNota(event, alunoId, cursoId, materiaId, professorId, avaliacaoNota){
+    return ipcRenderer.invoke('inserir-nota', alunoId, cursoId, materiaId, professorId, avaliacaoNota)
+}
 
 
 contextBridge.exposeInMainWorld('senacAPI',
@@ -72,7 +106,17 @@ contextBridge.exposeInMainWorld('senacAPI',
         buscarCursos: buscarCursos,
         deletarCurso: deletarCurso,
         atualizarCurso: atualizarCurso,
-        inserirCurso: inserirCurso
+        inserirCurso: inserirCurso,
+
+        buscarMaterias: buscarMaterias,
+        excluirMaterias: excluirMaterias,
+        atualizarMaterias: atualizarMaterias,
+        inserirMaterias: inserirMaterias,
+
+        buscarNotas:buscarNotas,
+        excluirNota:excluirNota,
+        atualizarNota:atualizarNota,
+        inserirNota: inserirNota
     }
 )
 
@@ -88,10 +132,20 @@ function windowCurso(){
     ipcRenderer.send('window-cursos')
 }
 
+function abrirMateria() {
+    ipcRenderer.send('abrir-materia')
+}
+
+function abrirNota(){
+    ipcRenderer.send('abrir-nota')
+}
+
 contextBridge.exposeInMainWorld('windowAPI',
     {
         windowAluno:windowAluno ,
         windowProfessor:windowProfessor,
-        windowCurso:windowCurso
+        windowCurso:windowCurso,
+        abrirMateria:abrirMateria,
+        abrirNota:abrirNota
     }
 )

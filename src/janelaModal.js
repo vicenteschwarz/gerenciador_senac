@@ -48,9 +48,29 @@ function modalAbrirCurso(event){
     }
 }
 
+function modalAbrirMateria(event) {
+    let mainWindow = getJanelaPrincipal()
+    if (mainWindow) {
+        createWindow_modal(mainWindow, './src/cadeira/cadeira.html')
+    } else {
+        alert('Não foi possivel abrir a modal: Janela principal não encontrada.')
+    }
+}
+
+function modalAbrirNotas(event) {
+    let mainWindow = getJanelaPrincipal()
+    if (mainWindow) {
+        createWindow_modal(mainWindow, './src/notas/notas.html')
+    } else {
+        console.warn('Não foi possivel abrir a modal: Janela principal não encontrada.')
+    }
+}
+
 module.exports = {
     createWindow_modal,
     modalAbrirProfessor,
     modalAbrirAluno,
-    modalAbrirCurso
+    modalAbrirCurso,
+    modalAbrirMateria,
+    modalAbrirNotas
 }

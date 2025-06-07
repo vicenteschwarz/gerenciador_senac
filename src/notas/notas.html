@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas dos alunos</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="notas.css">
+</head>
+
+<body>
+    <p id="teste"></p>
+    <button id="btn-incluir">
+        <i data-lucide="plus"></i>
+    </button>
+    <table id="materiasTable">
+        <thead>
+            <tr>
+                <th>Nome do aluno</th>
+                <th>Nome do curso</th>
+                <th>Nome da matéria</th>
+                <th>Professor</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <tbody id="notasTableDados">
+        </tbody>
+    </table>
+
+
+    <!--modal-->
+    <div id="modal">
+        <h3>Informações:</h3>
+
+        <label>ID: <input type="text" id="materia-id" readonly />
+        </label>
+        <br>
+        <label>Nome do aluno: <input type="text" id="materia-nome">
+        </label>
+        <select id="alunoDrop">
+        </select>
+        <br>
+        <label>Nome do curso:</label>
+        <select id="cursoDrop">
+        </select>
+        <br>
+        <label>Nome da cadeira:</label>
+        <select id="cadeiraDrop">
+        </select>
+        <br>
+        <label>Nome do professor:</label>
+        <select id="profDrop">
+        </select>
+        <br>
+        <label>Selecione uma nota:</label>
+        <select id="notaDrop">
+        </select>
+        <br>
+
+        <button id="btn-salvar">Salvar</button>
+        <button id="btn-excluir">Excluir</button>
+
+    </div>
+
+
+    <script src="notas.js"></script>
+</body>
+
+</html>
