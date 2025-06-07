@@ -1,5 +1,4 @@
 const { contextBridge, ipcRenderer } = require('electron');
-const { atualizarNota, inserirNota } = require('./notas/notas_db');
 //alunos
 function buscarAlunos() {
     return ipcRenderer.invoke('buscar-alunos');

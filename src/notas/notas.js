@@ -28,7 +28,7 @@ async function insereOuAtualizaNota() {
     const notaID = modalIDANota.value;
     console.log(alunoId, professorId, materiaId, cursoId, avaliacaoNota, notaID)
 
-    if (modalIDANota.value === '') {
+    if (notaID.value === '') {
         await window.senacAPI.inserirNota(alunoId, cursoId, materiaId, professorId, avaliacaoNota);
         incluirAluno()
     } else {
@@ -106,12 +106,13 @@ async function buscarMaterias() {
 } buscarMaterias();
 
 function mostrarDetalhes(id, idAluno, idCurso, idCadeira, idProfessores, idNota) {
-    tagAluno.value = idAluno
-    tagCurso.value = idCurso
-    tagCadeira.value = idCadeira
-    tagProfessores.value = idProfessores
-    tagNota.value = idNota
-    modalIDANota.value = id
+    modalIDANota.value = id;
+    tagAluno.value = idAluno;
+    tagCurso.value = idCurso;
+    tagCadeira.value = idCadeira;
+    tagProfessores.value = idProfessores;
+    tagNota.value = idNota;
+    
 }
 
 
@@ -130,7 +131,7 @@ async function carregarNotas() {
         return;
     }
 
-    listaNotas.forEach(criarLinhaAluno);
+    listaNotas.forEach(criarLinhaNotas);
     lucide.createIcons();
 
 
